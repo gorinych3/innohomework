@@ -24,7 +24,8 @@ public class Main {
         UserSortable bubbleSort = new BubbleSort();
         UserSortable selectionSort = new SelectionSort();
 
-        boolean genException = false;
+        boolean genException = true;
+        // для тестирования гита
 
         bubbleSort.sortArrPersons(main.generateArrPersons(10000),genException);
         selectionSort.sortArrPersons(main.generateArrPersons(10000), genException);
