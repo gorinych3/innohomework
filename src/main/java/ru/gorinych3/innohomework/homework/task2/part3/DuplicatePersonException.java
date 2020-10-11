@@ -1,4 +1,4 @@
-package ru.gorinych3.innohomework.part1.homework2.task3;
+package ru.gorinych3.innohomework.homework.task2.part3;
 
 public class DuplicatePersonException extends Throwable {
 

@@ -1,8 +1,8 @@
-package ru.gorinych3.innohomework.part1.homework2.task1;
+package ru.gorinych3.innohomework.homework.task2.part1;
 
 /**
  * Написать программу ”Hello, World!”. В ходе выполнения программы она должна выбросить исключение и завершиться с ошибкой.
- *
+ * <p>
  * Смоделировав ошибку «NullPointerException»
  * Смоделировав ошибку «ArrayIndexOutOfBoundsException»
  * Вызвав свой вариант ошибки через оператор throw
@@ -31,8 +31,8 @@ public class Main {
         HelloWorld helloWorld = new HelloWorld();
 
         helloWorld.setHello("Hello, World!");
-        char [] charsHelloFieldValue = helloWorld.getHello().toCharArray();
-        System.out.println(charsHelloFieldValue[charsHelloFieldValue.length+1]);
+        char[] charsHelloFieldValue = helloWorld.getHello().toCharArray();
+        System.out.println(charsHelloFieldValue[charsHelloFieldValue.length + 1]);
     }
 
     private void generateArithmeticException() {
