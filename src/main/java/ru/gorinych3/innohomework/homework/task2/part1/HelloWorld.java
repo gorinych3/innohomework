@@ -1,4 +1,4 @@
-package ru.gorinych3.innohomework.part1.homework2.task1;
+package ru.gorinych3.innohomework.homework.task2.part1;
 
 public class HelloWorld {
 
