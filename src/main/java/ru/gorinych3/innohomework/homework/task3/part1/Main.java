@@ -65,7 +65,7 @@ public class Main {
     private void checkDuplicateHashCode() {
         System.out.println("method checkDuplicateHashCode from 4_000_000 objects");
         Set<Integer> hashs = new HashSet<>();
-        long maxCountMathBox = 5_000_000L;
+        long maxCountMathBox = 6_000_000L;
         for (long i = 0; i < maxCountMathBox; i++) {
             hashs.add(new MathBox<>(new Number[]{1, 2L, 3.0, 4.5, 5 + i}).hashCode());
         }
