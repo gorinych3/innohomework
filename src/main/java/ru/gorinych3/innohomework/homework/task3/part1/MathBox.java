@@ -6,13 +6,32 @@ public class MathBox<T extends Number> {
 
     private List<Number> numberList; //
 
+    private int hashcode;
+
     public MathBox(T[] arrNumbers) {
         Set<Number> initSet = new HashSet<>(Arrays.asList(arrNumbers));
         numberList = new ArrayList<>(initSet);
+        initHashCode();
     }
 
-    public Number summator() {
-        if (this.numberList == null) {
+    public int getHashcode() {
+        return hashcode;
+    }
+
+    public void setHashcode(int hashcode) {
+        this.hashcode = hashcode;
+    }
+
+    private void initHashCode() {
+        int hash = 0;
+        for (Number numb : numberList) {
+            hash += numb.hashCode();
+        }
+        setHashcode(hash);
+    }
+
+    public double summator() {
+        if (Objects.isNull(this.numberList)) {
             return 0;
         }
 
@@ -24,7 +43,7 @@ public class MathBox<T extends Number> {
     }
 
     public <T extends Number> void splitter(T split) {
-        if (split.intValue() != 0) {
+        if (split.doubleValue() != 0) {
             for (int i = 0; i < numberList.size(); i++) {
                 numberList.set(i, numberList.get(i).doubleValue() / split.doubleValue());
             }
@@ -32,16 +51,7 @@ public class MathBox<T extends Number> {
     }
 
     public void deleteInt(Integer integer) {
-        ListIterator<? extends Number> listIterator = this.numberList.listIterator();
-
-        while (listIterator.hasNext()) {
-            Object object = listIterator.next();
-            if (object.getClass() == Integer.class) {
-                if (object.equals(integer)) {
-                    listIterator.remove();
-                }
-            }
-        }
+        numberList.remove(integer);
     }
 
 
@@ -58,12 +68,12 @@ public class MathBox<T extends Number> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MathBox mathBox = (MathBox) o;
-        return Objects.equals(numberList, mathBox.numberList);
+        return Objects.equals(this.numberList, mathBox.numberList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(numberList);
+        return this.getHashcode();
     }
 
     @Override

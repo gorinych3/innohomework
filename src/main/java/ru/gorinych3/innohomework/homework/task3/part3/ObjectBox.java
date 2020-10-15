@@ -2,11 +2,11 @@ package ru.gorinych3.innohomework.homework.task3.part3;
 
 import java.util.Collection;
 
-public class ObjectBox {
+public class ObjectBox<T> {
 
-    private Collection<Object> collection;
+    private Collection<T> collection;
 
-    public void addObject(Object object) throws Exception {
+    public void addObject(T object) throws Exception {
         if (collection != null) {
             collection.add(object);
         }
@@ -16,17 +16,17 @@ public class ObjectBox {
         System.out.println(this.collection.toString());
     }
 
-    public void deleteObject(Object object) {
+    public void deleteObject(T object) {
         if (collection != null) {
             collection.remove(object);
         }
     }
 
-    public Collection getCollection() {
+    public Collection<T> getCollection() {
         return collection;
     }
 
-    public void setCollection(Collection collection) {
+    public void setCollection(Collection<T> collection) {
         this.collection = collection;
     }
 }

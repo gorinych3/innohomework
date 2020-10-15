@@ -2,22 +2,41 @@ package ru.gorinych3.innohomework.homework.task3.part3;
 
 import java.util.*;
 
-public class MathBox<T extends Number> extends ObjectBox {
+public class MathBox<T extends Number> extends ObjectBox<T> {
 
+    private int hashcode;
 
     public MathBox(T[] arrNumbers) {
-        Set<Number> initSet = new HashSet<>(Arrays.asList(arrNumbers));
+        Set<T> initSet = new HashSet<>(Arrays.asList(arrNumbers));
         setCollection(new ArrayList<>(initSet));
+        initHashCode();
     }
 
-    public Number summator() {
+    public int getHashcode() {
+        return hashcode;
+    }
+
+    public void setHashcode(int hashcode) {
+        this.hashcode = hashcode;
+    }
+
+    private void initHashCode() {
+        int hash = 0;
+        for (Number numb : getCollection()) {
+            hash += numb.hashCode();
+        }
+        setHashcode(hash);
+    }
+
+    public Double summator() {
         if (getCollection() == null) {
-            return 0;
+            return 0d;
         }
 
         double sum = 0.0;
+
         for (Object number : getCollection()) {
-            sum += ((Number) number).doubleValue();
+            sum += ((T) number).doubleValue();
         }
         return sum;
     }
@@ -32,12 +51,13 @@ public class MathBox<T extends Number> extends ObjectBox {
     }
 
     @Override
-    public void addObject(Object object) throws Exception {
-        throw new Exception();
+    public void addObject(T object) throws Exception {
+        //throw new Exception();
+        getCollection().add(object);
     }
 
     public void deleteInt(Integer integer) {
-        deleteObject(integer);
+        deleteObject((T) integer);
     }
 
 
@@ -51,7 +71,7 @@ public class MathBox<T extends Number> extends ObjectBox {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCollection());
+        return getHashcode();
     }
 
     @Override
