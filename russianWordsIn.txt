@@ -1,0 +1,3 @@
+    Попытка перезаписать файл из кодировки UTF-8 в кодировку UTF-16
+
+    Attempt to overwrite a file from UTF-8 encoding to UTF-16 encoding
