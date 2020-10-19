@@ -72,8 +72,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        GeneratorText generatorText = new GeneratorText();
-        generatorText.getFiles(null, 2, 1000, arrWords, 2);
+        TextWrite textWrite = new TextWriteImpl();
+        textWrite.getFiles(null, 2, 1000, arrWords, 2);
 
     }
 }

@@ -8,9 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ChangeEncoding changeEncoding = new ChangeEncoding();
-
-        changeEncoding.utf8ToUtf16("russianWordsIn.txt", "russianWordsOut.txt");
+        ChangeEncoding.utf8ToUtf16("russianWordsIn.txt", "russianWordsOut.txt");
 
     }
 }
