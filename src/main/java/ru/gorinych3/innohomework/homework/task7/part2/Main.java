@@ -72,8 +72,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        TextWrite textWrite = new TextWriteImpl();
-        textWrite.getFiles(null, 2, 1000, arrWords, 2);
-
+        TextWriter textWriter = new TextWriterImpl();
+        textWriter.getFiles(null, 2, 1000, arrWords, 2);
     }
 }

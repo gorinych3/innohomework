@@ -2,7 +2,7 @@ package ru.gorinych3.innohomework.homework.task7.part2;
 
 import java.io.*;
 
-public class TextWriteImpl implements TextWrite {
+public class TextWriterImpl implements TextWriter {
 
     private ParagraphGenerate paragraphGenerate;
 

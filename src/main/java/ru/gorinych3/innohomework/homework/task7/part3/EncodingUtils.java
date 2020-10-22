@@ -3,9 +3,9 @@ package ru.gorinych3.innohomework.homework.task7.part3;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
-public class ChangeEncoding {
+public class EncodingUtils {
 
-    private ChangeEncoding() {
+    private EncodingUtils() {
     }
 
     public static void utf8ToUtf16(String inFileName, String outFileName) {

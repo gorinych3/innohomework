@@ -1,29 +1,20 @@
 package ru.gorinych3.innohomework.homework.task7.part2;
 
-import javax.annotation.PostConstruct;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class WordGenerateImpl implements WordGenerate {
 
-    private List<String> words;
+    private List<String> words = new ArrayList<>();
 
     public WordGenerateImpl(String[] arrWords) {
-        this.words = Arrays.asList(arrWords);
+        Collections.addAll(words, arrWords);
     }
 
     @Override
-    public String getWordFromList() {
-        return words.get((int) (Math.random() * words.size())).toLowerCase();
-    }
-
-    @PostConstruct
-    public void deleteWordsLengthMore15() {
-        for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).length() > 15) {
-                System.out.println(words.get(i));
-                words.remove(words.get(i));
-            }
-        }
+    public String getWord() {
+        return words.get(new Random().nextInt(words.size())).toLowerCase();
     }
 }
