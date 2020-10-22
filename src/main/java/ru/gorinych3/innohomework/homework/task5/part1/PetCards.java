@@ -7,17 +7,20 @@ import java.util.UUID;
 
 public class PetCards {
 
-    private List<Pet> pets;
+    private List<Pet> pets = new ArrayList<>();
 
     public PetCards() {
-        pets = new ArrayList<>();
     }
 
-    public void addPet2PetCards(Pet newPet) {
+    public PetCards(List<Pet> pets) {
+        this.pets = pets;
+    }
+
+    public void addPet(Pet newPet) throws DuplicatePetException {
         for (Pet pet : pets) {
             if (pet.equals(newPet)) {
                 System.out.println(newPet.toString());
-                throw new RuntimeException("Питомец с такими данными уже существует в картотеке");
+                throw new DuplicatePetException("Питомец с такими данными уже существует в картотеке");
             }
         }
         pets.add(newPet);

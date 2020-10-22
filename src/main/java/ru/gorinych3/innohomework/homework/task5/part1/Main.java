@@ -23,7 +23,7 @@ public class Main {
     List<Person> owners = new ArrayList<>();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DuplicatePetException {
         Main main = new Main();
 
         main.generateArrPersons(10);
@@ -35,7 +35,7 @@ public class Main {
 
         petCards.printPetsCard();
 
-        petCards.addPet2PetCards(
+        petCards.addPet(
                 new Pet("НОВАЯ КЛИЧКА", main.owners.get(9), (int) (Math.random() * 10) + 1));
 
         System.out.println();
@@ -71,13 +71,13 @@ public class Main {
         }
     }
 
-    private void initPetsCard(PetCards petCards, int size) {
+    private void initPetsCard(PetCards petCards, int size) throws DuplicatePetException {
         for (int i = 0; i < size; i++) {
             String petName = generatePetName();
             Person person = owners.get((int) (Math.random() * owners.size()));
             int petWeight = (int) (Math.random() * 10) + 1;
 
-            petCards.addPet2PetCards(new Pet(petName, person, petWeight));
+            petCards.addPet(new Pet(petName, person, petWeight));
         }
     }
 

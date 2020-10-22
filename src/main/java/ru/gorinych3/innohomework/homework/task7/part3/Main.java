@@ -2,13 +2,13 @@ package ru.gorinych3.innohomework.homework.task7.part3;
 
 /**
  * Задание-бонус: напишите простую программу, которая читает файл в кодировке UTF-8, а пишет в другой файл в
- *  кодировке UTF-16. Использовать InputStreamReader/OutputStreamWriter
+ * кодировке UTF-16. Использовать InputStreamReader/OutputStreamWriter
  */
 public class Main {
 
     public static void main(String[] args) {
 
-        ChangeEncoding.utf8ToUtf16("russianWordsIn.txt", "russianWordsOut.txt");
+        EncodingUtils.utf8ToUtf16("russianWordsIn.txt", "russianWordsOut.txt");
 
     }
 }

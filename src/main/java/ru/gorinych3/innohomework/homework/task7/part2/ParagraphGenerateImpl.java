@@ -1,12 +1,16 @@
 package ru.gorinych3.innohomework.homework.task7.part2;
 
+import java.util.Random;
+
 public class ParagraphGenerateImpl implements ParagraphGenerate {
 
-    private final int maxSentenceInParagraph = 20;
+    private final int MAX_SENTENCE_IN_PARAGRAPH = 20;
 
     private int probability;
 
     private SentenceGenerate sentenceGenerate;
+
+    private Random random = new Random();
 
     public ParagraphGenerateImpl(int probability, SentenceGenerate sentenceGenerate) {
         this.probability = probability;
@@ -19,7 +23,8 @@ public class ParagraphGenerateImpl implements ParagraphGenerate {
         for (int x = 0; x < 20; x++) {
             StringBuilder paragraph = new StringBuilder();
             paragraph.append("\t");
-            int sentenceLenght = (int) ((Math.random() * maxSentenceInParagraph) + 1);
+            //int sentenceLenght = (int) ((Math.random() * MAX_SENTENCE_IN_PARAGRAPH) + 1);
+            int sentenceLenght = random.nextInt(MAX_SENTENCE_IN_PARAGRAPH) + 1;
             for (int i = 0; i < sentenceLenght; i++) {
                 paragraph.append(sentenceGenerate.generateSentence(probability));
             }
