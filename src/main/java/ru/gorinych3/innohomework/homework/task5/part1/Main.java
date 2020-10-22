@@ -1,8 +1,11 @@
 package ru.gorinych3.innohomework.homework.task5.part1;
 
+import ru.gorinych3.innohomework.homework.task2.part3.Person;
+import ru.gorinych3.innohomework.homework.task2.part3.Sex;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Разработать программу – картотеку домашних животных. У каждого животного есть уникальный идентификационный номер,
@@ -20,7 +23,7 @@ public class Main {
     List<Person> owners = new ArrayList<>();
 
 
-    public static void main(String[] args) throws DuplicatePetException {
+    public static void main(String[] args) {
         Main main = new Main();
 
         main.generateArrPersons(10);
@@ -42,18 +45,18 @@ public class Main {
 
         System.out.println();
         System.out.println("===========================================");
-        System.out.println(petCards.findPetByPetName("НОВАЯ КЛИЧКА"));
+        System.out.println(petCards.findByPetName("НОВАЯ КЛИЧКА"));
 
         System.out.println();
         System.out.println("======================================================");
-        System.out.println(petCards.findPetsByPetName("Том"));
+        System.out.println(petCards.findByPetName("Том"));
 
         System.out.println();
         System.out.println("======================================================");
-        System.out.println(petCards.findPetByPetName("НОВАЯ КЛИЧКА"));
-        long id = petCards.findPetByPetName("НОВАЯ КЛИЧКА").getPetId();
-        petCards.changePetDataById(id, 3);
-        System.out.println(petCards.findPetByPetName("НОВАЯ КЛИЧКА"));
+        System.out.println(petCards.findByPetName("НОВАЯ КЛИЧКА"));
+        UUID id = petCards.findByPetName("НОВАЯ КЛИЧКА").get(0).getPetId();
+        petCards.changePetDataById(id, new Pet("КЛИЧКА", main.owners.get(9), 5));
+        System.out.println(petCards.findByPetName("КЛИЧКА"));
     }
 
     private void generateArrPersons(int arrSize) {
@@ -68,7 +71,7 @@ public class Main {
         }
     }
 
-    private void initPetsCard(PetCards petCards, int size) throws DuplicatePetException {
+    private void initPetsCard(PetCards petCards, int size) {
         for (int i = 0; i < size; i++) {
             String petName = generatePetName();
             Person person = owners.get((int) (Math.random() * owners.size()));

@@ -1,8 +1,12 @@
 package ru.gorinych3.innohomework.homework.task5.part1;
 
+import ru.gorinych3.innohomework.homework.task2.part3.Person;
+
+import java.util.UUID;
+
 public class Pet implements Comparable<Pet> {
 
-    private final long petId;
+    private final UUID petId;
 
     private String petName;
 
@@ -14,10 +18,10 @@ public class Pet implements Comparable<Pet> {
         this.petName = petName;
         this.petOwner = owner;
         this.petWeight = petWeight;
-        petId = petName.hashCode() + petOwner.hashCode() + petWeight;
+        petId = UUID.randomUUID();
     }
 
-    public long getPetId() {
+    public UUID getPetId() {
         return this.petId;
     }
 
@@ -37,7 +41,7 @@ public class Pet implements Comparable<Pet> {
         this.petOwner = petOwner;
     }
 
-    public double getPetWeight() {
+    public int getPetWeight() {
         return petWeight;
     }
 
@@ -57,7 +61,7 @@ public class Pet implements Comparable<Pet> {
 
     @Override
     public int hashCode() {
-        return (int) getPetId();
+        return (int) petId.getMostSignificantBits();
     }
 
     @Override
