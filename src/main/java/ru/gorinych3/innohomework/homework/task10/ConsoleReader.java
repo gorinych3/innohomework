@@ -8,6 +8,10 @@ import java.util.List;
 
 public class ConsoleReader {
 
+    private ConsoleReader(){
+
+    }
+
     public static List<String> readLines() {
         List<String> lines = new ArrayList<>();
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(System.in))) {

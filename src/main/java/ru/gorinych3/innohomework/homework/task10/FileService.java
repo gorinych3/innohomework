@@ -39,8 +39,8 @@ public class FileService {
     }
 
     private String injectRealisation() {
-        String interfaceText = getTextFromList(CustomFileReader.readFile(
-                new File(interfaceFileName + EXT_JAVA)))
+        String interfaceText = getTextFromList(
+                CustomFileReader.readFile(new File(interfaceFileName + EXT_JAVA)))
                 .replace("interface Worker", "class SomeClass");
 
         interfaceText = interfaceText.replace("package ru.gorinych3.innohomework.homework.task10;\n", "");
